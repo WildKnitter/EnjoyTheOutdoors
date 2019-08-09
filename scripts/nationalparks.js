@@ -42,33 +42,36 @@ window.onload = function() {
 
     //Starts the communication to the server
     $.getJSON(
-        "data/nationalparks.json",
-        //This function doesn't necessarily run instantaneously
-        function(data) {
-            objs = data;
-            //load dropdown lists here (code)
-            const locationChoice = document.getElementById("locationChoice");
-            for (let i = 0; i < parkState.length; i++) {
-                let locationOption = document.createElement("option");
-                locationOption.text = parkState[i];
-                locationOption.value = parkState[i];
-                locationChoice.appendChild(locationOption);
+            "data/nationalparks.json",
+            //This function doesn't necessarily run instantaneously
+            function(data) {
+                objs = data;
+                //load dropdown lists here (code)
+                const locationChoice = document.getElementById("locationChoice");
+                for (let i = 0; i < parkState.length; i++) {
+                    let locationOption = document.createElement("option");
+                    locationOption.text = parkState[i];
+                    locationOption.value = parkState[i];
+                    locationChoice.appendChild(locationOption);
+                }
+                const parkTypeChoice = document.getElementById("parkTypeChoice");
+                for (let i = 0; i < parkType.length; i++) {
+                    let parkTypeOption = document.createElement("option");
+                    parkTypeOption.text = parkType[i];
+                    parkTypeOption.value = parkType[i];
+                    parkTypeChoice.appendChild(parkTypeOption);
+                }
             }
-            const parkTypeChoice = document.getElementById("parkTypeChoice");
-            for (let i = 0; i < parkType.length; i++) {
-                let parkTypeOption = document.createElement("option");
-                parkTypeOption.text = parkType[i];
-                parkTypeOption.value = parkType[i];
-                parkTypeChoice.appendChild(parkTypeOption);
-            }
-        }
-    )
-
+        )
+        //buttons
     const btnLocation = document.getElementById("btnLocation");
     btnLocation.onclick = createLocationTable;
     const btnParkType = document.getElementById("btnParkType");
     btnParkType.onclick = createParkTypeTable;
+    const btnAll = document.getElementById("btnAll");
+    btnAll.onclick = createAllTable;
 
+    // Function to create a table for a selected location.
     function createLocationTable() {
         let locationChoice = document.getElementById("locationChoice").selectedIndex;
         // to select option from a specific dropdown, in this instance locationChoice.
@@ -129,6 +132,7 @@ window.onload = function() {
         }
     }
 
+    // Function to create a table for a selected park type.
     function createParkTypeTable() {
         let parkTypeChoice = document.getElementById("parkTypeChoice").selectedIndex;
         // to select option from a specific dropdown, in this instance parkTypeChoice.
@@ -186,6 +190,62 @@ window.onload = function() {
                 cell9.innerHTML = objs.parks[i].Longitude;
                 table.appendChild(row);
             }
+        }
+    }
+
+    // Function to create a table for ALL the National Parks.
+    function createAllTable() {
+        let table = document.getElementById("parkAll");
+        table.innerHTML = "";
+        let row = table.insertRow(table.rows.length);
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = "Name";
+        let cell2 = row.insertCell(1);
+        cell2.innerHTML = "Address";
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = "City";
+        let cell4 = row.insertCell(3);
+        cell4.innerHTML = "State";
+        let cell5 = row.insertCell(4);
+        cell5.innerHTML = "Zip";
+        let cell6 = row.insertCell(5);
+        cell6.innerHTML = "Phone";
+        let cell7 = row.insertCell(6);
+        cell7.innerHTML = "Fax";
+        let cell8 = row.insertCell(7);
+        cell8.innerHTML = "Latitude";
+        let cell9 = row.insertCell(8);
+        cell9.innerHTML = "Longitude";
+        table.appendChild(row);
+        for (let i = 0; i < objs.parks.length; i++) {
+            let row = table.insertRow(table.rows.length);
+            let cell1 = row.insertCell(0);
+            cell1.innerHTML = objs.parks[i].LocationName;
+            table.appendChild(row);
+            let cell2 = row.insertCell(1);
+            cell2.innerHTML = objs.parks[i].Address;
+            table.appendChild(row);
+            let cell3 = row.insertCell(2);
+            cell3.innerHTML = objs.parks[i].City;
+            table.appendChild(row);
+            let cell4 = row.insertCell(3);
+            cell4.innerHTML = objs.parks[i].State;
+            table.appendChild(row);
+            let cell5 = row.insertCell(4);
+            cell5.innerHTML = objs.parks[i].ZipCode;
+            table.appendChild(row);
+            let cell6 = row.insertCell(5);
+            cell6.innerHTML = objs.parks[i].Phone;
+            table.appendChild(row);
+            let cell7 = row.insertCell(6);
+            cell7.innerHTML = objs.parks[i].Fax;
+            table.appendChild(row);
+            let cell8 = row.insertCell(7);
+            cell8.innerHTML = objs.parks[i].Latitude;
+            table.appendChild(row);
+            let cell9 = row.insertCell(8);
+            cell9.innerHTML = objs.parks[i].Longitude;
+            table.appendChild(row);
         }
     }
 }

@@ -43,23 +43,25 @@ window.onload = function() {
 
                         row = table.insertRow(table.rows.length);
                         let cell3 = row.insertCell(0);
-                        cell3.innerHTML = "Elevation";
+                        cell3.innerHTML = "View";
                         let cell4 = row.insertCell(1);
-                        cell4.innerHTML = objs.mountains[i].elevation;
-                        table.appendChild(row);
+                        let img = document.createElement("img");
+                        img.src = "images/" + objs.mountains[i].img;
+                        img.alt = objs.mountains[i].name;
+                        cell4.appendChild(img);
 
                         row = table.insertRow(table.rows.length);
                         let cell5 = row.insertCell(0);
-                        cell5.innerHTML = "Effort";
+                        cell5.innerHTML = "Elevation";
                         let cell6 = row.insertCell(1);
-                        cell6.innerHTML = objs.mountains[i].effort;
+                        cell6.innerHTML = objs.mountains[i].elevation;
                         table.appendChild(row);
 
                         row = table.insertRow(table.rows.length);
                         let cell7 = row.insertCell(0);
-                        cell7.innerHTML = "Image";
+                        cell7.innerHTML = "Effort";
                         let cell8 = row.insertCell(1);
-                        cell8.innerHTML = objs.mountains[i].img;
+                        cell8.innerHTML = objs.mountains[i].effort;
                         table.appendChild(row);
 
                         row = table.insertRow(table.rows.length);

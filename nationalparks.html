@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--Page to demonstrate dynamically creating tables for national parks, the information being selected from a JSON file.-->
+<!--Page to dynamically create tables for national parks, the information being selected from a JSON file.-->
 
 <head>
     <link rel="icon" href="images/favicon.ico" />
@@ -66,6 +66,17 @@
 
         <div id="parkTypeDiv">
             <table id="parkTypes" class="table table-bordered">
+            </table>
+        </div>
+        <br /><br />
+    </form>
+
+    <!--Table for selecting ALL the National Parks -->
+    <form id="parkAllForm" name="parkAll" method="GET" action="#">
+        <input type="button" id="btnAll" name="btnAll" value="See Them All!">
+
+        <div id="parkAllDiv">
+            <table id="parkAll" class="table table-bordered">
             </table>
         </div>
         <br /><br />
