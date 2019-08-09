@@ -1,6 +1,19 @@
 "use strict";
-//This scripts contains code to dynamically create information on different mountains from a JSON file.
+//This script contains code to dynamically create information on different mountains from a JSON file.
 //Author:  Pam Belknap
+
+/*
+Key for understanding how to access the fields in the JSON file:
+objs.mountains
+objs.mountains.length
+objs.mountains[i].name
+objs.mountains[i].elevation
+objs.mountains[i].effort
+objs.mountains[i].img
+objs.mountains[i].desc
+objs.mountains[i].coords.lat
+objs.mountains[i].coords.lng
+*/
 
 // Initialize
 window.onload = function() {
@@ -25,6 +38,7 @@ window.onload = function() {
             const btnMountain = document.getElementById("btnMountain");
             btnMountain.onclick = createmountainTable;
 
+            //This function dynamically creates the mountain table, according to the dropdown selection.
             function createmountainTable() {
                 let mountainChoice = document.getElementById("mountainChoice").selectedIndex;
                 // to select option from a specific dropdown, in this instance mountainChoice.
