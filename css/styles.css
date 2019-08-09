@@ -61,6 +61,13 @@ footer {
     border-color: rgb(131, 179, 145);
 }
 
+#btnAll {
+    color: black;
+    font-weight: bold;
+    background-color: rgb(131, 179, 145);
+    border-color: rgb(131, 179, 145);
+}
+
 
 /* Fix links so that they are underlined when one hovers over them */
 
