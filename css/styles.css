@@ -1,0 +1,87 @@
+/* This is an additional stylesheet site*/
+
+
+/* Stylesheet code from the Bootstrap Jumbotron template */
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+
+/* Formatting for the Header */
+
+header {
+    text-align: center;
+    font-weight: bold;
+}
+
+body {
+    background-color: white;
+    height: 100%;
+}
+
+
+/* Formatting for the Footer */
+
+footer {
+    clear: left;
+    border-top: thin solid navy;
+    text-align: right;
+}
+
+p {
+    text-align: center;
+}
+
+
+/* Fix links so that they are underlined when one hovers over them */
+
+.nav-link:hover,
+.nav-link:focus {
+    text-decoration: underline;
+}
+
+.imageGroup {
+    padding: 10px;
+}
+
+#errorMsg {
+    color: red;
+    font-weight: bold;
+}
+
+
+/* Extra-Small devices (landscape phones, 576px and down) */
+
+@media (max-width: 576px) {}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {}
+
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {}
+
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Page to demonstrate dynamically creating tables for national parks, the information being selected from a JSON file.-->
+
+<head>
+    <title>National Parks</title>
+    <!--JavaScript sheet-->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Enjoy the Outdoors!</h1>
+        <h2 class="display-4">Your Guide to Our Great Nation's National Parks</h2>
+    </header>
+
+    <!--Table for searching for National Parks by Location -->
+    <form id="locationForm" method="GET" action="#">
+        <h3>Select a National Park by Location</h3>
+        <select id="locationChoice" name="locationChoice">
+    </select>
+
+        <input type="button" id="btnLocation" name="btnLocation" value="Pick Your Location">
+
+        <div id="locationDiv">
+            <table id="locations" class="table table-bordered">
+            </table>
+        </div>
+        <br /><br />
+    </form>
+
+    <!--Table for searching for National Parks by Park Type -->
+    <form id="parkTypeForm" method="GET" action="#">
+        <h3>Select a National Park by Park Type</h3>
+        <select id="parkTypeChoice" name="parkTypeChoice">
+    </select>
+
+        <input type="button" id="btnParkType" name="btnParkType" value="Pick Your Park Type">
+
+        <div id="parkTypeDiv">
+            <table id="parkTypes" class="table table-bordered">
+            </table>
+        </div>
+        <br /><br />
+    </form>
+
+    <footer class="container">
+        <p>&copy; Pam Belknap 2019</p>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--External js script-->
+    <script src="scripts/nationalparks.js"></script>
+</body>
+
+</html>
