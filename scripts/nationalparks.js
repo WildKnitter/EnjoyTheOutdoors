@@ -66,6 +66,8 @@ window.onload = function() {
 
     const btnLocation = document.getElementById("btnLocation");
     btnLocation.onclick = createLocationTable;
+    const btnParkType = document.getElementById("btnParkType");
+    btnParkType.onclick = createParkTypeTable;
 
     function createLocationTable() {
         let locationChoice = document.getElementById("locationChoice").selectedIndex;
@@ -73,77 +75,115 @@ window.onload = function() {
         let chosenLocation = document.getElementById("locationChoice").options[locationChoice].value;
         let table = document.getElementById("locations");
         table.innerHTML = "";
-
+        let row = table.insertRow(table.rows.length);
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = "Name";
+        let cell2 = row.insertCell(1);
+        cell2.innerHTML = "Address";
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = "City";
+        let cell4 = row.insertCell(3);
+        cell4.innerHTML = "State";
+        let cell5 = row.insertCell(4);
+        cell5.innerHTML = "Zip";
+        let cell6 = row.insertCell(5);
+        cell6.innerHTML = "Phone";
+        let cell7 = row.insertCell(6);
+        cell7.innerHTML = "Fax";
+        let cell8 = row.insertCell(7);
+        cell8.innerHTML = "Latitude";
+        let cell9 = row.insertCell(8);
+        cell9.innerHTML = "Longitude";
+        table.appendChild(row);
         for (let i = 0; i < objs.parks.length; i++) {
             if (chosenLocation == objs.parks[i].State) {
                 let row = table.insertRow(table.rows.length);
                 let cell1 = row.insertCell(0);
-                cell1.innerHTML = "Name";
+                cell1.innerHTML = objs.parks[i].LocationName;
+                table.appendChild(row);
                 let cell2 = row.insertCell(1);
-                cell2.innerHTML = objs.parks[i].LocationName;
+                cell2.innerHTML = objs.parks[i].Address;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell3 = row.insertCell(0);
-                cell3.innerHTML = "Address";
-                let cell4 = row.insertCell(1);
-                cell4.innerHTML = objs.parks[i].Address;
+                let cell3 = row.insertCell(2);
+                cell3.innerHTML = objs.parks[i].City;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell5 = row.insertCell(0);
-                cell5.innerHTML = "City";
-                let cell6 = row.insertCell(1);
-                cell6.innerHTML = objs.parks[i].City;
+                let cell4 = row.insertCell(3);
+                cell4.innerHTML = objs.parks[i].State;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell7 = row.insertCell(0);
-                cell7.innerHTML = "State";
-                let cell8 = row.insertCell(1);
-                cell8.innerHTML = objs.parks[i].State;
+                let cell5 = row.insertCell(4);
+                cell5.innerHTML = objs.parks[i].ZipCode;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell9 = row.insertCell(0);
-                cell9.innerHTML = "Zip";
-                let cell10 = row.insertCell(1);
-                cell10.innerHTML = objs.parks[i].ZipCode;
+                let cell6 = row.insertCell(5);
+                cell6.innerHTML = objs.parks[i].Phone;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell11 = row.insertCell(0);
-                cell11.innerHTML = "Phone";
-                let cell12 = row.insertCell(1);
-                cell12.innerHTML = objs.parks[i].Phone;
+                let cell7 = row.insertCell(6);
+                cell7.innerHTML = objs.parks[i].Fax;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell13 = row.insertCell(0);
-                cell13.innerHTML = "Fax";
-                let cell14 = row.insertCell(1);
-                cell14.innerHTML = objs.parks[i].Fax;
+                let cell8 = row.insertCell(7);
+                cell8.innerHTML = objs.parks[i].Latitude;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell15 = row.insertCell(0);
-                cell15.innerHTML = "Latitude";
-                let cell16 = row.insertCell(1);
-                cell16.innerHTML = objs.parks[i].Latitude;
+                let cell9 = row.insertCell(8);
+                cell9.innerHTML = objs.parks[i].Longitude;
                 table.appendChild(row);
+            }
+        }
+    }
 
-                row = table.insertRow(table.rows.length);
-                let cell17 = row.insertCell(0);
-                cell17.innerHTML = "Longitude";
-                let cell18 = row.insertCell(1);
-                cell18.innerHTML = objs.parks[i].Longitude;
+    function createParkTypeTable() {
+        let parkTypeChoice = document.getElementById("parkTypeChoice").selectedIndex;
+        // to select option from a specific dropdown, in this instance parkTypeChoice.
+        let chosenParkType = document.getElementById("parkTypeChoice").options[parkTypeChoice].value;
+        let table = document.getElementById("parkTypes");
+        table.innerHTML = "";
+        let row = table.insertRow(table.rows.length);
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = "Name";
+        let cell2 = row.insertCell(1);
+        cell2.innerHTML = "Address";
+        let cell3 = row.insertCell(2);
+        cell3.innerHTML = "City";
+        let cell4 = row.insertCell(3);
+        cell4.innerHTML = "State";
+        let cell5 = row.insertCell(4);
+        cell5.innerHTML = "Zip";
+        let cell6 = row.insertCell(5);
+        cell6.innerHTML = "Phone";
+        let cell7 = row.insertCell(6);
+        cell7.innerHTML = "Fax";
+        let cell8 = row.insertCell(7);
+        cell8.innerHTML = "Latitude";
+        let cell9 = row.insertCell(8);
+        cell9.innerHTML = "Longitude";
+        table.appendChild(row);
+        for (let i = 0; i < objs.parks.length; i++) {
+            if (objs.parks[i].LocationName.search(chosenParkType) != -1) {
+                let row = table.insertRow(table.rows.length);
+                let cell1 = row.insertCell(0);
+                cell1.innerHTML = objs.parks[i].LocationName;
                 table.appendChild(row);
-
-                row = table.insertRow(table.rows.length);
-                let cell19 = row.insertCell(0);
-                cell19.innerHTML = "";
-                let cell20 = row.insertCell(1);
-                cell20.innerHTML = "";
+                let cell2 = row.insertCell(1);
+                cell2.innerHTML = objs.parks[i].Address;
+                table.appendChild(row);
+                let cell3 = row.insertCell(2);
+                cell3.innerHTML = objs.parks[i].City;
+                table.appendChild(row);
+                let cell4 = row.insertCell(3);
+                cell4.innerHTML = objs.parks[i].State;
+                table.appendChild(row);
+                let cell5 = row.insertCell(4);
+                cell5.innerHTML = objs.parks[i].ZipCode;
+                table.appendChild(row);
+                let cell6 = row.insertCell(5);
+                cell6.innerHTML = objs.parks[i].Phone;
+                table.appendChild(row);
+                let cell7 = row.insertCell(6);
+                cell7.innerHTML = objs.parks[i].Fax;
+                table.appendChild(row);
+                let cell8 = row.insertCell(7);
+                cell8.innerHTML = objs.parks[i].Latitude;
+                table.appendChild(row);
+                let cell9 = row.insertCell(8);
+                cell9.innerHTML = objs.parks[i].Longitude;
                 table.appendChild(row);
             }
         }
